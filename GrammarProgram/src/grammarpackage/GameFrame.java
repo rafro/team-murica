@@ -1,21 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grammarpackage;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
 
 /**
  *
- * @author rafaelrodriguez
+ * @author team_amazing
  */
 public class GameFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GameFrame
-     */
+    // APPLICATION GLOBAL VARIABLES
+    ImageIcon domeIcon;
+    ImageIcon domeResize;
+    Image domeImg;
+    BufferedImage domeBuff;
+    
     public GameFrame() {
         initComponents();
+        
+        // ===================
+        // Initialization Code
+        // ===================
+        
+        // Create the DOME.png resizable image for the start screen
+        domeIcon = new ImageIcon("DOME.png");
+        domeImg = domeIcon.getImage();
+        domeBuff = new BufferedImage(domeImg.getWidth(null), domeImg.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics g = domeBuff.createGraphics();
+        g.drawImage(domeImg, 0, 0, domeImg.getWidth(null), domeImg.getHeight(null), null);
+        
     }
 
     /**
@@ -27,17 +42,21 @@ public class GameFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/DOME.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 729, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, Short.MAX_VALUE)
         );
 
         pack();
@@ -79,5 +98,6 @@ public class GameFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
