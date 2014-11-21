@@ -1,8 +1,9 @@
 package grammarpackage;
 
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
@@ -12,10 +13,9 @@ import javax.swing.ImageIcon;
 public class GameFrame extends javax.swing.JFrame {
 
     // APPLICATION GLOBAL VARIABLES
-    ImageIcon domeIcon;
-    ImageIcon domeResize;
-    Image domeImg;
+    BufferedImage initDomeBuff;
     BufferedImage domeBuff;
+    ImageIcon domeIcon;
     
     public GameFrame() {
         initComponents();
@@ -24,13 +24,16 @@ public class GameFrame extends javax.swing.JFrame {
         // Initialization Code
         // ===================
         
-        // Create the DOME.png resizable image for the start screen
-        domeIcon = new ImageIcon("DOME.png");
-        domeImg = domeIcon.getImage();
-        domeBuff = new BufferedImage(domeImg.getWidth(null), domeImg.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-        Graphics g = domeBuff.createGraphics();
-        g.drawImage(domeImg, 0, 0, domeImg.getWidth(null), domeImg.getHeight(null), null);
-        
+        // Create resizeable DOME.png label
+        initDomeBuff = null;
+        try {
+            initDomeBuff = ImageIO.read(new File("DOME.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        domeBuff = (BufferedImage) initDomeBuff.getScaledInstance(lblBattleDome.getWidth(), lblBattleDome.getHeight(), Image.SCALE_SMOOTH);
+        domeIcon = new ImageIcon(domeBuff);
+        lblBattleDome.setIcon(domeIcon);
     }
 
     /**
@@ -42,21 +45,26 @@ public class GameFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblBattleDome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/DOME.png"))); // NOI18N
+        lblBattleDome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBattleDome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/DOME.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 729, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblBattleDome)
+                .addGap(0, 176, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblBattleDome)
+                .addGap(0, 165, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,6 +106,6 @@ public class GameFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblBattleDome;
     // End of variables declaration//GEN-END:variables
 }
