@@ -1,5 +1,19 @@
 package grammarpackage;
 
+<<<<<<< HEAD
+=======
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import static java.lang.Thread.sleep;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
+
+>>>>>>> FETCH_HEAD
 /**
  *
  * @author team_amazing
@@ -18,7 +32,33 @@ public class GameFrame extends javax.swing.JFrame {
         
         
     }
-
+ //Playing starting music
+        //When built it shows errors but the code works, do not remove it.
+        //I lied remove it because this is one big error.
+//        Thread sound;
+//        sound = new Thread() {
+//            public void run() {
+//
+//                AudioPlayer MGP = AudioPlayer.player;
+//                AudioStream BGM;
+//                AudioData MD;
+//                ContinuousAudioDataStream loop = null;
+//                for (;;) {
+//                    try {
+//                        BGM = new AudioStream((getClass().getResourceAsStream("/resources/GameTheme.wav")));//enter the sound directory and name here
+//                        AudioPlayer.player.start(BGM);
+//                        sleep(35000);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        };
+//        sound.start();
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
