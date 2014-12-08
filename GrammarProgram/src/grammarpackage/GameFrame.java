@@ -4,7 +4,6 @@ package grammarpackage;
 =======
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import static java.lang.Thread.sleep;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
