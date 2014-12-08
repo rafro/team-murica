@@ -1,11 +1,5 @@
 package grammarpackage;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author team_amazing
@@ -13,9 +7,7 @@ import javax.swing.ImageIcon;
 public class GameFrame extends javax.swing.JFrame {
 
     // APPLICATION GLOBAL VARIABLES
-    BufferedImage initDomeBuff;
-    BufferedImage domeBuff;
-    ImageIcon domeIcon;
+    
     
     public GameFrame() {
         initComponents();
@@ -24,16 +16,7 @@ public class GameFrame extends javax.swing.JFrame {
         // Initialization Code
         // ===================
         
-        // Create resizeable DOME.png label
-        initDomeBuff = null;
-        try {
-            initDomeBuff = ImageIO.read(new File("DOME.png"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        domeBuff = (BufferedImage) initDomeBuff.getScaledInstance(lblBattleDome.getWidth(), lblBattleDome.getHeight(), Image.SCALE_SMOOTH);
-        domeIcon = new ImageIcon(domeBuff);
-        lblBattleDome.setIcon(domeIcon);
+        
     }
 
     /**
@@ -45,30 +28,74 @@ public class GameFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlMainScreen = new javax.swing.JPanel();
         lblBattleDome = new javax.swing.JLabel();
+        btnPlay = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 550));
+        setMinimumSize(new java.awt.Dimension(800, 550));
+        setPreferredSize(new java.awt.Dimension(800, 550));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 550));
 
         lblBattleDome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBattleDome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/DOME.png"))); // NOI18N
+
+        btnPlay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnPlay.setText("PLAY!");
+        btnPlay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnPlayMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlMainScreenLayout = new javax.swing.GroupLayout(pnlMainScreen);
+        pnlMainScreen.setLayout(pnlMainScreenLayout);
+        pnlMainScreenLayout.setHorizontalGroup(
+            pnlMainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainScreenLayout.createSequentialGroup()
+                .addGroup(pnlMainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlMainScreenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlMainScreenLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(lblBattleDome, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        pnlMainScreenLayout.setVerticalGroup(
+            pnlMainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainScreenLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(lblBattleDome, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lblBattleDome)
-                .addGap(0, 176, Short.MAX_VALUE))
+                .addComponent(pnlMainScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lblBattleDome)
-                .addGap(0, 165, Short.MAX_VALUE))
+                .addComponent(pnlMainScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPlayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPlayMousePressed
+        pnlMainScreen.setEnabled(false);
+        pnlMainScreen.setVisible(false);
+    }//GEN-LAST:event_btnPlayMousePressed
 
     /**
      * @param args the command line arguments
@@ -106,6 +133,8 @@ public class GameFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnPlay;
     private javax.swing.JLabel lblBattleDome;
+    private javax.swing.JPanel pnlMainScreen;
     // End of variables declaration//GEN-END:variables
 }
