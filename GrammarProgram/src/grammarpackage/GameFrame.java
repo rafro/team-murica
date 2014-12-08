@@ -1,18 +1,7 @@
 package grammarpackage;
 
-<<<<<<< HEAD
-=======
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import static java.lang.Thread.sleep;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
 
->>>>>>> FETCH_HEAD
+
 /**
  *
  * @author team_amazing
@@ -31,9 +20,9 @@ public class GameFrame extends javax.swing.JFrame {
         
         
     }
- //Playing starting music
-        //When built it shows errors but the code works, do not remove it.
-        //I lied remove it because this is one big error.
+//        Playing starting music
+//        When built it shows errors but the code works, do not remove it.
+//        I lied remove it because this is one big error.
 //        Thread sound;
 //        sound = new Thread() {
 //            public void run() {
