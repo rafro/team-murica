@@ -1,6 +1,7 @@
 package grammarpackage;
 
 import java.awt.CardLayout;
+import javax.swing.JLabel;
 
 /**
  *
@@ -9,7 +10,10 @@ import java.awt.CardLayout;
 public class GameFrame extends javax.swing.JFrame {
 
     // APPLICATION GLOBAL VARIABLES
+    final int SIZE = 3;
+    
     CardLayout cl;
+    JLabel [][] raceTrack;
     
     
     public GameFrame() {
@@ -19,7 +23,20 @@ public class GameFrame extends javax.swing.JFrame {
         // Initialization Code
         // ===================
         cl = (CardLayout)mainPanel.getLayout();
+        raceTrack = new JLabel[SIZE][SIZE];
         
+        // Setup gameboard panel
+        gameScreen.setLayout(null);
+        
+        for (int r = 0; r < SIZE; r++) {
+            for (int c = 0; c < SIZE; c++) {
+                raceTrack[r][c] = new JLabel();
+                raceTrack[r][c].setOpaque(true);
+                raceTrack[r][c].setBorder(null);
+                raceTrack[r][c].setBounds(0, 0, c, c);
+                gameScreen.add(raceTrack[r][c]);
+            }
+        }
         
     }
 
